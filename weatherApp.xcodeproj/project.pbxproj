@@ -10,6 +10,8 @@
 		6997BD609E4297FF55BC3140 /* Pods_weatherAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7511229785AD3372A7F8DF65 /* Pods_weatherAppUITests.framework */; };
 		75F3762FCA25E9A4B35AD85B /* Pods_weatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7F317CFF64B31C117153475 /* Pods_weatherAppTests.framework */; };
 		A521359B8CA5EB40031F52B4 /* Pods_weatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4819F530D6AE3DAC5EB9596 /* Pods_weatherApp.framework */; };
+		F414A8E01E9C619B008F576F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414A8DF1E9C619B008F576F /* Constants.swift */; };
+		F414A8E21E9C6C31008F576F /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F414A8E11E9C6C31008F576F /* CurrentWeather.swift */; };
 		F41BDBB21E998A590029DF1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BDBB11E998A590029DF1B /* AppDelegate.swift */; };
 		F41BDBB41E998A590029DF1B /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BDBB31E998A590029DF1B /* WeatherVC.swift */; };
 		F41BDBB71E998A590029DF1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F41BDBB51E998A590029DF1B /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		C7F317CFF64B31C117153475 /* Pods_weatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15A0D083E5E216532BA2138 /* Pods-weatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-weatherApp/Pods-weatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		D4819F530D6AE3DAC5EB9596 /* Pods_weatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F414A8DF1E9C619B008F576F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F414A8E11E9C6C31008F576F /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		F41BDBAE1E998A590029DF1B /* weatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41BDBB11E998A590029DF1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F41BDBB31E998A590029DF1B /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
@@ -112,6 +116,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F414A8E31E9C6C3C008F576F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F414A8DF1E9C619B008F576F /* Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		F414A8E41E9C6C4F008F576F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F414A8E11E9C6C31008F576F /* CurrentWeather.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		F41BDBA51E998A590029DF1B = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +157,8 @@
 		F41BDBB01E998A590029DF1B /* weatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F414A8E31E9C6C3C008F576F /* Constants */,
+				F414A8E41E9C6C4F008F576F /* Model */,
 				F41BDBB11E998A590029DF1B /* AppDelegate.swift */,
 				F41BDBB31E998A590029DF1B /* WeatherVC.swift */,
 				F41BDBB51E998A590029DF1B /* Main.storyboard */,
@@ -449,6 +471,8 @@
 			files = (
 				F41BDBB41E998A590029DF1B /* WeatherVC.swift in Sources */,
 				F41BDBB21E998A590029DF1B /* AppDelegate.swift in Sources */,
+				F414A8E21E9C6C31008F576F /* CurrentWeather.swift in Sources */,
+				F414A8E01E9C619B008F576F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
