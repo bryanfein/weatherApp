@@ -9,14 +9,16 @@
 import UIKit
 import Alamofire
 
+
 class CurrentWeather {
-    var _cityName : String!
-    var _date : String!
-    var _weatherType : String!
-    var _currentWeather : Double!
+    private var _cityName : String!
+    private var _date : String!
+    private var _weatherType : String!
+    private var _currentWeather : Double!
     
     
-//to ensure your code is safe
+    
+    //to ensure your code is safe
     
     var cityName : String {
         if _cityName == nil {
@@ -25,14 +27,14 @@ class CurrentWeather {
         return _cityName
     }
     
-//------
+    //------
     var weatherType : String {
         if _weatherType == nil {
             _weatherType = ""
         }
         return _weatherType
     }
-//-------
+    //-------
     var currentWeather : Double {
         if _currentWeather == nil{
             _currentWeather = 0.0
@@ -40,17 +42,35 @@ class CurrentWeather {
         return _currentWeather
     }
     
-//------
+    //------
     
     var date : String {
         if _date == nil{
             _date = ""
         }
+        // declare your dateFormatter and how it looks
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
         
-        let dateFormater = DateFormatter()
-        dateFormater 
-        
+        // a constant that gets the date and we are using dateFormatter to formate the date
+        let currentDate = dateFormatter.string(from: Date())
+        self._date = "Today, \(currentDate)"
         return _date
+    }
+    
+    
+    func downloadWeatherDetails(completed : DownloadComplete) {
+        // Alamofire download
+        let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
+        
+        //start Alamofire - passing in the URL and we want the results to come in Json format
+        Alamofire.request(currentWeatherURL).responseJSON { response in //(enclouser) after we request it, we'll give it a repsonse
+            let result = response.result
+            print(response)
+            
+        }
+        completed() //call compeleted method
     }
 }
 
