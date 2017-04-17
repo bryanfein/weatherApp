@@ -97,8 +97,8 @@
                                                         <constraint firstAttribute="height" constant="50" id="iBQ-hH-Q9E"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-yP-bOT">
-                                                    <rect key="frame" x="66" y="15" width="273" height="49"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="p4v-yP-bOT">
+                                                    <rect key="frame" x="74" y="18" width="273" height="48.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iLt-7g-Hov">
                                                             <rect key="frame" x="0.0" y="0.0" width="136.5" height="48.5"/>

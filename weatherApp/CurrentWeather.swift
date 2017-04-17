@@ -61,7 +61,7 @@ class CurrentWeather {
     
     // downloading Json from API
     
-    func downloadWeatherDetails(completed : DownloadComplete) {
+    func downloadWeatherDetails(completed : @escaping DownloadComplete) {
         // Alamofire download
         let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
         
@@ -75,6 +75,8 @@ class CurrentWeather {
                 if let name = weatherDictionary["name"] as? String {
                     self._cityName = name.capitalized
                     print(self._cityName)
+
+
                 }
                 
                 if let weather = weatherDictionary["weather"] as? [Dictionary<String, AnyObject>] // Array within a Dictionary
@@ -97,9 +99,9 @@ class CurrentWeather {
                     }
                 }
             }
-            
+            completed() //call compeleted method
+ 
         }
-        completed() //call compeleted method
     }
 }
 
