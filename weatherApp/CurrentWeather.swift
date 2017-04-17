@@ -14,7 +14,7 @@ class CurrentWeather {
     private var _cityName : String!
     private var _date : String!
     private var _weatherType : String!
-    private var _currentWeather : Double!
+    private var _currentTemp : Double!
     
     
     
@@ -36,10 +36,10 @@ class CurrentWeather {
     }
     //-------
     var currentWeather : Double {
-        if _currentWeather == nil{
-            _currentWeather = 0.0
+        if _currentTemp == nil{
+            _currentTemp = 0.0
         }
-        return _currentWeather
+        return _currentTemp
     }
     
     //------
@@ -59,6 +59,7 @@ class CurrentWeather {
         return _date
     }
     
+    // downloading Json from API
     
     func downloadWeatherDetails(completed : DownloadComplete) {
         // Alamofire download
@@ -67,7 +68,35 @@ class CurrentWeather {
         //start Alamofire - passing in the URL and we want the results to come in Json format
         Alamofire.request(currentWeatherURL).responseJSON { response in //(enclouser) after we request it, we'll give it a repsonse
             let result = response.result
-            print(response)
+            //    print(response)
+            
+            
+            if let weatherDictionary = result.value as? Dictionary<String, AnyObject> {
+                if let name = weatherDictionary["name"] as? String {
+                    self._cityName = name.capitalized
+                    print(self._cityName)
+                }
+                
+                if let weather = weatherDictionary["weather"] as? [Dictionary<String, AnyObject>] // Array within a Dictionary
+                {
+                    if let main = weather[0]["main"] as? String {
+                        self._weatherType = main.capitalized
+                        print(self._weatherType)
+                    }
+                }
+                
+                if let main = weatherDictionary["main"] as? Dictionary<String, AnyObject> {
+                    if let currentTemperture = main["temp"] as? Double {
+                        
+                        //convert kelvin to farenhite
+                        let kelvinToFarenhitePreDivision = (currentTemperture * (9/5) - 459.67)
+                        let kalvinToFarenhite = Double (round (10 * kelvinToFarenhitePreDivision/10))
+                        
+                        self._currentTemp = kalvinToFarenhite
+                        print(self._currentTemp)
+                    }
+                }
+            }
             
         }
         completed() //call compeleted method
