@@ -18,8 +18,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var forecast = Forecast()
     var currentWeather = CurrentWeather()
+    var forecastArray = [Forecast]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,31 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
     }
+    
+    func downloadForastData(complete: DownloadComplete) {
+        //downloading weather data for tableview
+        
+        let forecastURL = URL(string: FORCAST_URL)!
+        
+        Alamofire.request(forecastURL).responseJSON { response in //(enclouser) after we request it, we'll give it a repsonse
+            // print(response)
+            let result = response.result
+            
+            if let forecastDict = result.value as? Dictionary<String, AnyObject> {
+                if let list = forecastDict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for object in list {
+                        //grab the dictionary from online and throw it in a dictionary
+                        let forecast = Forecast(weatherDict: object)
+                        //append the dictonaries to the array I created
+                        self.forecast.append(forecast)
+                    }
+                }
+            }
+        }
+    }
+    
+    
     
     //(3) Required Functions for UITableView | You are setting everything up
     func numberOfSections(in tableView: UITableView) -> Int {
