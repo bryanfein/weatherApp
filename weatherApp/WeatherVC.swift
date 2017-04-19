@@ -18,7 +18,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var forecast = Forecast()
     var currentWeather = CurrentWeather()
     var forecastArray = [Forecast]()
     
@@ -30,13 +29,14 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         currentWeather.downloadWeatherDetails { //call downloadWeatherDetails function
-            self.updateMainUI()
+            self.downloadForastData{
+                self.updateMainUI()
+                
+            }
         }
-        
-        
     }
     
-    func downloadForastData(complete: DownloadComplete) {
+    func downloadForastData(complete: @escaping DownloadComplete) {
         //downloading weather data for tableview
         
         let forecastURL = URL(string: FORCAST_URL)!
@@ -52,10 +52,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         //grab the dictionary from online and throw it in a dictionary
                         let forecast = Forecast(weatherDict: object)
                         //append the dictonaries to the array I created
-                        self.forecast.append(forecast)
+                        self.forecastArray.append(forecast)
+                        print(object)
                     }
                 }
             }
+            complete()
         }
     }
     
@@ -77,6 +79,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
     func updateMainUI() {
         dateLable.text = currentWeather.date
         
@@ -88,4 +91,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         weatherIcon.image = UIImage(named: currentWeather.weatherType)
     }
 }
+
+
+
+
 

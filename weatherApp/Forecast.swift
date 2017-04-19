@@ -81,12 +81,26 @@ class Forecast {
                 self._weatherType = main
             }
         }
+        if let date = weatherDict["dt"] as? Double {
+            let unixConvertedDate = Date(timeIntervalSince1970: date)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .full
+            dateFormatter.dateFormat = "EEEE"
+            dateFormatter.timeStyle = .none
+            self._date = unixConvertedDate.datOfTheWeek()
+            
+        }
+        
     }
 }
 
 
 extension Date {
-    func
+    func datOfTheWeek() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
 }
 
 
