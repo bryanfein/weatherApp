@@ -32,9 +32,9 @@ class Forecast {
     //---------
     var weatherType: String {
         if _weatherType == nil {
-            _date = ""
+            _weatherType = ""
         }
-        return _date
+        return _weatherType
     }
     //---------
     var highTemp : String {
@@ -55,7 +55,7 @@ class Forecast {
     
     init(weatherDict: Dictionary<String, AnyObject>){
         
-        if let temp = weatherDict["temp"] as? Dictionary<String, AnyObject> {
+        if let weatherDict = weatherDict["temp"] as? Dictionary<String, AnyObject> {
             
             if let min = weatherDict["min"] as? Double {
                 

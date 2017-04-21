@@ -20,8 +20,10 @@
 		F41BDBBC1E998A590029DF1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F41BDBBA1E998A590029DF1B /* LaunchScreen.storyboard */; };
 		F41BDBC71E998A590029DF1B /* weatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BDBC61E998A590029DF1B /* weatherAppTests.swift */; };
 		F41BDBD21E998A590029DF1B /* weatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BDBD11E998A590029DF1B /* weatherAppUITests.swift */; };
+		F41F9ABD1EA7EF9C00D26A52 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41F9ABC1EA7EF9C00D26A52 /* WeatherCell.swift */; };
 		F46F30F31E9D697500B0E847 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46F30E61E9D68AF00B0E847 /* Alamofire.framework */; };
 		F46F30F41E9D697500B0E847 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F46F30E61E9D68AF00B0E847 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F4C295561EAA7B9B00E48A92 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C295551EAA7B9B00E48A92 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,11 +139,13 @@
 		F41BDBCD1E998A590029DF1B /* weatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41BDBD11E998A590029DF1B /* weatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAppUITests.swift; sourceTree = "<group>"; };
 		F41BDBD31E998A590029DF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F41F9ABC1EA7EF9C00D26A52 /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		F431CF321E9D3F790025A63E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		F431CF711E9D5BC20025A63E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		F431CF761E9D63150025A63E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		F46F30DA1E9D68AF00B0E847 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		F49A744B1E9C86DA00C563CE /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		F4C295551EAA7B9B00E48A92 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				F414A8DF1E9C619B008F576F /* Constants.swift */,
+				F4C295551EAA7B9B00E48A92 /* Location.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 		F41BDBB01E998A590029DF1B /* weatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F41F9AB41EA7EF7800D26A52 /* View */,
 				F414A8E31E9C6C3C008F576F /* Constants */,
 				F414A8E41E9C6C4F008F576F /* Model */,
 				F40C866D1EA57548009A6883 /* Controller */,
@@ -279,6 +285,14 @@
 				F41BDBD31E998A590029DF1B /* Info.plist */,
 			);
 			path = weatherAppUITests;
+			sourceTree = "<group>";
+		};
+		F41F9AB41EA7EF7800D26A52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F41F9ABC1EA7EF9C00D26A52 /* WeatherCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		F46F30DB1E9D68AF00B0E847 /* Products */ = {
@@ -639,9 +653,11 @@
 			files = (
 				F41BDBB41E998A590029DF1B /* WeatherVC.swift in Sources */,
 				F41BDBB21E998A590029DF1B /* AppDelegate.swift in Sources */,
+				F41F9ABD1EA7EF9C00D26A52 /* WeatherCell.swift in Sources */,
 				F414A8E21E9C6C31008F576F /* CurrentWeather.swift in Sources */,
 				F414A8E01E9C619B008F576F /* Constants.swift in Sources */,
 				F40C86651EA57256009A6883 /* Forecast.swift in Sources */,
+				F4C295561EAA7B9B00E48A92 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

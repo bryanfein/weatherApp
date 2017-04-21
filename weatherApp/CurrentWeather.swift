@@ -35,8 +35,8 @@ class CurrentWeather {
         return _weatherType
     }
     //-------
-    var currentWeather : Double {
-        if _currentTemp == nil{
+    var currentTemp : Double {
+        if _currentTemp == nil {
             _currentTemp = 0.0
         }
         return _currentTemp
@@ -63,21 +63,19 @@ class CurrentWeather {
     
     func downloadWeatherDetails(completed : @escaping DownloadComplete) {
         // Alamofire download
-        let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
+//        let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
         
         //start Alamofire - passing in the URL and we want the results to come in Json format
-        Alamofire.request(currentWeatherURL).responseJSON { response in //(enclouser) after we request it, we'll give it a repsonse
+        Alamofire.request(CURRENT_WEATHER_URL).responseJSON { response in //(enclouser) after we request it, we'll give it a repsonse
             let result = response.result
-            //    print(response)
-            
             
             if let weatherDictionary = result.value as? Dictionary<String, AnyObject> {
+                
                 if let name = weatherDictionary["name"] as? String {
                     self._cityName = name.capitalized
                     print(self._cityName)
-                    
-                    
                 }
+                
                 
                 if let weather = weatherDictionary["weather"] as? [Dictionary<String, AnyObject>] // Array within a Dictionary
                 {
@@ -92,6 +90,7 @@ class CurrentWeather {
                         
                         //convert kelvin to farenhite
                         let kelvinToFarenhitePreDivision = (currentTemperture * (9/5) - 459.67)
+                        
                         let kalvinToFarenhite = Double (round (10 * kelvinToFarenhitePreDivision/10))
                         
                         self._currentTemp = kalvinToFarenhite
